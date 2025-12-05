@@ -126,8 +126,7 @@ export function Services() {
       categoriesById[service.category_id] ||
       categoriesById[service.categoryId];
 
-    const color =
-      category?.color || category?.hex_color || category?.bgColor || "";
+    const color = category?.color_hex || category?.color || "";
 
     if (!color) return null;
     // if it's a hex or rgb string, we'll use it directly
@@ -171,7 +170,7 @@ export function Services() {
               {loading ? (
                 <tr>
                   <td colSpan={5} className="px-3 py-4 text-center text-xs">
-                    Yuklanmoqda...
+                    {t("common.loading")}
                   </td>
                 </tr>
               ) : services.length > 0 ? (
@@ -213,14 +212,14 @@ export function Services() {
                           onClick={() => handleEdit(s)}
                           className="rounded-lg border border-slate-200 px-2 py-1 text-[11px] text-slate-600 hover:bg-slate-50"
                         >
-                          Edit
+                          {t("common.edit")}
                         </button>
                         <button
                           type="button"
                           onClick={() => handleDelete(s)}
                           className="ml-2 rounded-lg border border-rose-200 px-2 py-1 text-[11px] text-rose-600 hover:bg-rose-50"
                         >
-                          Delete
+                          {t("common.delete")}
                         </button>
                       </td>
                     </tr>
@@ -232,7 +231,7 @@ export function Services() {
                     colSpan={5}
                     className="px-3 py-6 text-center text-xs text-slate-400"
                   >
-                    Xizmatlar ro‘yxati bo‘sh.
+                    {t("noServices")}
                   </td>
                 </tr>
               )}
@@ -257,7 +256,7 @@ export function Services() {
                         focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Service name"
+              placeholder={t("nameOfService")}
             />
           </div>
 
@@ -302,7 +301,7 @@ export function Services() {
                 onClick={resetForm}
                 className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs text-slate-600 hover:bg-slate-50"
               >
-                Cancel
+                {t("cancel")}
               </button>
             )}
             <button
@@ -311,7 +310,7 @@ export function Services() {
               className="rounded-lg bg-sky-500 px-3 py-1.5 text-xs font-semibold text-white shadow-sm
                         hover:bg-sky-600 disabled:cursor-not-allowed disabled:bg-sky-300"
             >
-              {saving ? "Saqlanmoqda..." : "Saqlash"}
+              {t("save")}
             </button>
           </div>
         </form>
