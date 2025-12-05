@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  .bg-border {
+    background-color: hsl(var(--border));
+  }
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
